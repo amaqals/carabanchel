@@ -48,20 +48,20 @@ var zonas = L.geoJSON(zonas, {
 }).addTo(map);
 
 /* insert points */
-var puntos = L.geoJSON(puntos, {
-	// onEachFeature: Popup,
-	pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, categoria_style(feature));
-    }
-}).addTo(map);
-
-/* insert points with categoria */
 // var puntos = L.geoJSON(puntos, {
-// 	onEachFeature: Popup,
+// 	// onEachFeature: Popup,
 // 	pointToLayer: function (feature, latlng) {
 //         return L.circleMarker(latlng, categoria_style(feature));
 //     }
 // }).addTo(map);
+
+/* insert points with categoria */
+var puntos = L.geoJSON(puntos, {
+	onEachFeature: Popup,
+	pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, categoria_style(feature));
+    }
+}).addTo(map);
 
 /* polygons style */
 zonas.setStyle({
@@ -72,8 +72,9 @@ zonas.setStyle({
 
 /* points color according to category */
 function getcolor(c) {
-  if(c == "NARANJAS") return '#8EFF40'; else
+  if(c == "NARANJAS") return '#ff00ff'; else
   if (c == "TRADICIONALES") return '#070594';
+	if (c == "ALIADOS") return '#8EFF40';
   }
 
 /* points color according to category */
@@ -97,14 +98,14 @@ function getcolor(c) {
 // }
 
 /* pop-up */
-// function Popup(feature, layer) {
-//     if (feature.properties) {
-//         layer.bindPopup(
-//           '<div class="popup">'+
-// 		          '<p><b>Referència Cadastral: </b><br>'+feature.properties.REFCAT+'</p><p><b>Categoria: </b><br>'+feature.properties.Categoria+'</p><p><b>Clau Urbana: </b><br>'+feature.properties.ClauUrban+'</p>'
-// 		);
-// 		}
-// }
+function Popup(feature, layer) {
+    if (feature.properties) {
+        layer.bindPopup(
+          '<div class="popup">'+
+		          '<p><b>Tipo: </b><br>'+feature.properties.MAPEO_ESPE+'</p><p><b>Nombre: </b><br>'+feature.properties.ROTULO+'</p>'
+		);
+		}
+}
 
 /* legend */
 // var legend = L.control({position: "topright"});
