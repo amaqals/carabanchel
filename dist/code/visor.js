@@ -47,13 +47,6 @@ var zonas = L.geoJSON(zonas, {
     }
 }).addTo(map);
 
-/* insert points */
-// var puntos = L.geoJSON(puntos, {
-// 	// onEachFeature: Popup,
-// 	pointToLayer: function (feature, latlng) {
-//         return L.circleMarker(latlng, categoria_style(feature));
-//     }
-// }).addTo(map);
 
 /* insert points with categoria */
 var puntos = L.geoJSON(puntos, {
@@ -77,7 +70,7 @@ function getcolor(c) {
 	if (c == "ALIADOS") return '#8EFF40';
   }
 
-/* points color according to category */
+/* points style */
 	function categoria_style(feature) {
 	  return{
 	    "stroke": false,
@@ -87,7 +80,7 @@ function getcolor(c) {
 	    }
 	}
 
-/* points color according to category */
+/* points radius according to category */
 // function categoria_style(feature) {
 //   return{
 //     "stroke": false,
@@ -108,23 +101,21 @@ function Popup(feature, layer) {
 }
 
 /* legend */
-// var legend = L.control({position: "topright"});
-//
-// legend.onAdd = function(map) {
-//     var div = L.DomUtil.create("div", "legend");
-//     div.innerHTML = '<b>Categories dels puntos</b><br>' +
-//         'segons fotointerpretació<br><br>' +
-//         '<i style="background-color: #1c00bd">' +
-//         '</i>1: No edificat, accessible <br>' +
-//         '<i style="background-color: #1444ba">' +
-//         '</i>21: No edificat, amb ús temporal, accessible <br>' +
-//         '<i style="background-color: #09abb6">' +
-//         '</i>32: No edificat, amb ús permanent <br>' +
-//         '<i style="background-color: #00ffb2">' +
-//         '</i>34: Edificat, en bon estat <br>';
-//     return div;
-// };
-// legend.addTo(map);
+var legend = L.control({position: "topright"});
+
+legend.onAdd = function(map) {
+    var div = L.DomUtil.create("div", "legend");
+    div.innerHTML = '<b>Categorías de los puntos</b><br>' +
+        'según origen<br><br>' +
+        '<i style="background-color: #ff00ff">' +
+        '</i>Naranjas<br>' +
+        '<i style="background-color: #070594">' +
+        '</i>Tradicionales <br>' +
+        '<i style="background-color: #8EFF40">' +
+        '</i>Aliados<br>';
+    return div;
+};
+legend.addTo(map);
 
 /* variable information */
 // var info = L.control({position: "topright"});
