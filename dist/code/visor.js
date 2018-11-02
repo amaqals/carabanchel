@@ -40,10 +40,18 @@ L.tileLayer('https://korona.geog.uni-heidelberg.de/tiles/roadsg/x={x}&y={y}&z={z
 // }
 // map.on("click", onMapClick);
 
-/* insert polygons */
+/* insert polygons (zonas oportunidad) */
 var zonas = L.geoJSON(zonas, {
 	pointToLayer: function (feature) {
         return L.path(zonas_style(feature));
+    }
+}).addTo(map);
+
+
+/* insert polygons (patrimonio)*/
+var patrimonio = L.geoJSON(patrimonio, {
+	pointToLayer: function (feature) {
+        return L.path(patrimonio_style(feature));
     }
 }).addTo(map);
 
@@ -56,11 +64,19 @@ var puntos = L.geoJSON(puntos, {
     }
 }).addTo(map);
 
-/* polygons style */
+/* polygons style (zonas oportunidad) */
 zonas.setStyle({
     color: '#070594',
     weight: 1,
     fill: false,
+});
+
+/* polygons style (patrimonio) */
+patrimonio.setStyle({
+		color: '#070594',
+		filcolor: '#070594',
+    weight: 0.5,
+    fill: true,
 });
 
 /* points color according to category */
