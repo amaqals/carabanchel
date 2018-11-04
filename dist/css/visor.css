@@ -15,10 +15,31 @@
     font-size: 14px;
   }
 
+  p.capitalize {
+      text-transform: capitalize;
+  }
+
   #capçalera {
     margin-left:15px;
     height: 30px;
     /* display:block; */
+  }
+
+  #map {
+    z-index: 1;
+
+  }
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    background-color: #200093;
+    opacity: 0.2;
+    z-index: 2;
   }
 
   .popup {
