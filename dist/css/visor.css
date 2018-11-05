@@ -11,9 +11,39 @@
   }
 
   h1 {
+    padding-top: 5px;
+    padding-left: 15px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
+    margin-top: 0px;
+    color: #000000;
   }
+
+  /* #capçalera {
+    margin-left:15px;
+    height: 30px;
+  } */
+
+  .navbar-fixed-top{
+        border:0;
+        height: 30px;
+        background-color: #FFFFFF;
+      }
+
+      #container {
+        vertical-align: middle;
+        background-color: #000000;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        margin-top:0px;
+      }
+
+      #container #map{
+        position: relative;
+        width: auto;
+        height: calc(100% - 30px);
+      }
 
   p.capitalize {
       text-transform: capitalize;

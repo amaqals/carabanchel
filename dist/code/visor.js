@@ -7,7 +7,6 @@
 
  The source code below is the example from the leaflet start page.
  */
-
 var map = L.map('map').setView([40.388, -3.73], 15);
 
 /* map color */
@@ -33,6 +32,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png
 }).addTo(map);
 
 
+
 /* special popup to show latlon onclick */
 // var popup2 = L.popup();
 // function onMapClick(e) {
@@ -48,31 +48,16 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png
 // }
 // map.on("click", onMapClick);
 
-/* ied icon1 */
-// var ied_icon = L.icon({
-// 		iconUrl: 'dist/css/images/ied_icon_1.png',
-// 		iconSize:     [70	, 70], // size of the icon
-// 		iconAnchor:   [0, 70], // point of the icon which will correspond to marker's location
-// 		popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-// });
 
 /* ied icon2 */
 var ied_icon = L.icon({
-		iconUrl: 'dist/css/images/ied_icon_2.png',
-		iconSize:     [38, 38], // size of the icon
-		// iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-		popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+   iconUrl: 'dist/css/images/ied_icon_2.png',
+   iconSize:     [38, 38], // size of the icon
+   popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 L.marker([40.3905997, -3.7295064], {icon: ied_icon}).addTo(map);
 
-/* insert manzanas */
-// var manzanas = L.geoJSON(manzanas, {
-// 	pointToLayer: function (feature) {
-//         return L.path(manzanas_style(feature));
-//     }
-// }).addTo(map);
-
-/* insert polygons (zonas oportunidad) */
+/* insert polygons (zonas potencial) */
 var zonas = L.geoJSON(zonas, {
 	onEachFeature: Popup_oportunidad,
 	pointToLayer: function (feature) {
@@ -96,22 +81,14 @@ var puntos = L.geoJSON(puntos, {
     }
 }).addTo(map);
 
-/* insert ied */
-var ied = L.geoJSON(ied, {
-	pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, ied_style(feature));
-    }
-}).addTo(map);
-
-
-/* polygons style (zonas oportunidad) */
+/* polygons style (zonas potencial) */
 zonas.setStyle({
     color: '#19E301',
-		stroke: 1,
-		filcolor:'#8EFF40' ,
-		fillOpacity: 0.3,
-    weight: 2,
-    fill: false,
+		stroke: 0.8,
+		filcolor:'#FFFFFF' ,
+		fillOpacity: 0.0,
+    weight: 1.5,
+    fill: true,
 });
 
 /* polygons style (patrimonio) */
@@ -119,24 +96,14 @@ patrimonio.setStyle({
 		color: '#070594',
 		filcolor: '#070594',
     weight: 0.5,
-    fill: false,
+    fill: true,
 });
-
-/* manzanas style */
-// manzanas.setStyle({
-//     color: '#070594',
-// 		// stroke: 0.01,
-// 		filcolor:'#070594' ,
-// 		fillOpacity: 0.2,
-//     weight: 0.5,
-//     fill: false,
-// });
 
 /* points color according to category */
 function getcolor(c) {
-  if(c == "NARANJAS") return '#FCAF00'; else
-  if (c == "TRADICIONALES") return '#3FDAD6';
-	if (c == "ALIADOS") return '#FE52D4';
+  if(c == "naranja") return '#FCAF00'; else
+  if (c == "tradicional") return '#3FDAD6';
+	if (c == "aliado") return '#FE52D4';
   }
 
 /* points style */
@@ -164,7 +131,7 @@ function Popup(feature, layer) {
     if (feature.properties) {
         layer.bindPopup(
           '<div class="popup">'+
-		          '<p class = "capitalize"><b>Categoría: </b><br>'+feature.properties.MAPEO_ESPE+'</p><p class = "capitalize"><b>Nombre: </b><br>'+feature.properties.ROTULO+'</p>'
+		          '<p><b>categoría: </b><br>'+feature.properties.MAPEO_ESPE+'<br><br><b>actividad:</b><br>'+feature.properties.SUBDIVISIO+'<br><br><b>nombre: </b><br>'+feature.properties.ROTULO+'</p>'
 		);
 		}
 }
@@ -174,7 +141,7 @@ function Popup_patrimonio(feature, layer) {
     if (feature.properties) {
         layer.bindPopup(
           '<div class="popup">'+
-		          '<p><b>Categoría: </b><br> Geográfico <br><br><b>Tipo: </b><br> Patrimonio Industrial </p>'
+		          '<p><b>categoría: </b><br> geográfico <br><br><b>tipo: </b><br> patrimonio industrial </p>'
 		);
 		}
 }
@@ -184,33 +151,31 @@ function Popup_oportunidad(feature, layer) {
     if (feature.properties) {
         layer.bindPopup(
           '<div class="popup">'+
-						'<p><b> Categoría: </b><br> Geográfico <br><br><b>Tipo: </b><br> Lugar potencial<br><br> <b> Nombre: </b><br>'+feature.properties.Nombre+'</p>'
+						'<p><b> categoría: </b><br> geográfico <br><br><b>tipo: </b><br> lugar potencial<br><br> <b> nombre: </b><br>'+feature.properties.nombre+'</p>'
 		);
 		}
 }
-
 
 /* legend */
 var legend = L.control({position: "topright"});
 
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML = '<b>Categorías</b><br><br>' +
+    div.innerHTML = '<b>categorías</b><br><br>' +
         '<i style="background-color: #FCAF00">' +
-        '</i>Naranjas<br>' +
-        '<i style="background-color: #070594">' +
-        '</i>Tradicionales <br>' +
+        '</i>naranja<br>' +
+        '<i style="background-color: #3FDAD6">' +
+        '</i>tradicional <br>' +
         '<i style="background-color: #FE52D4">' +
-        '</i>Aliados<br>';
+        '</i>aliado<br>';
     return div;
 };
 legend.addTo(map);
 
-
 /* search button */
-map.addControl(new L.Control.Search({
-		layer: puntos,
-		initial: false,
-		// expanded: true,
-		hideMarkerOnCollapse: true,
-		propertyName: 'MAPEO_ESPE'}));
+// map.addControl(new L.Control.Search({
+// 		layer: puntos,
+// 		initial: false,
+// 		// expanded: true,
+// 		hideMarkerOnCollapse: true,
+// 		propertyName: 'MAPEO_ESPE'}));
