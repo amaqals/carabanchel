@@ -31,29 +31,10 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png
  maxZoom: 19
 }).addTo(map);
 
-
-
-/* special popup to show latlon onclick */
-// var popup2 = L.popup();
-// function onMapClick(e) {
-//     popup2
-//         .setLatLng(e.latlng)
-//         .setContent(
-//             "You clicked the map at -<br><b>lon:</b> " +
-//             e.latlng.lng +
-//             "<br><b>lat:</b> " +
-//             e.latlng.lat
-//         )
-//         .openOn(map);
-// }
-// map.on("click", onMapClick);
-
-
 /* ied icon2 */
 var ied_icon = L.icon({
    iconUrl: 'dist/css/images/ied_icon_2.png',
-   iconSize:     [38, 38], // size of the icon
-   popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+   iconSize: [38, 38] // size of the icon
 });
 L.marker([40.3905997, -3.7295064], {icon: ied_icon}).addTo(map);
 
@@ -167,7 +148,12 @@ legend.onAdd = function(map) {
         '<i style="background-color: #3FDAD6">' +
         '</i>tradicional <br>' +
         '<i style="background-color: #FE52D4">' +
-        '</i>aliado<br>';
+        '</i>aliado<br><br>'+
+        '<b>mapeo geográfico</b><br><br>'+
+        '<i style="background-color: #19E301; width: 3px; height: 15px">' +
+        '</i>zonas potencial<br>'+
+        '<i style="background-color: #070594; width: 3px; height: 15px">' +
+        '</i>patrimonio industrial<br>';
     return div;
 };
 legend.addTo(map);
