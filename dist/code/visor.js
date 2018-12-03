@@ -122,7 +122,7 @@ function Popup_patrimonio(feature, layer) {
     if (feature.properties) {
         layer.bindPopup(
           '<div class="popup">'+
-		          '<p><b>categoría: </b><br> geográfico <br><br><b>tipo: </b><br> patrimonio industrial </p>'
+		          '<p><b>categoría: </b><br> geográfico <br><br><b>tipo: </b><br> patrimonio industrial <br><br> <b> dirección: </b><br>'+feature.properties.DIRECCIÓN+'<br><br> <b> año: </b><br>'+feature.properties.AÑO+'<br><br> <b> descripción: </b><br>'+feature.properties.DESCRIPCIÓ+'</p>'
 		);
 		}
 }
@@ -132,7 +132,7 @@ function Popup_oportunidad(feature, layer) {
     if (feature.properties) {
         layer.bindPopup(
           '<div class="popup">'+
-						'<p><b> categoría: </b><br> geográfico <br><br><b>tipo: </b><br> lugar potencial<br><br> <b> nombre: </b><br>'+feature.properties.nombre+'</p>'
+						'<p><b> categoría: </b><br> geográfico <br><br><b>tipo: </b><br> lugar potencial</p>'
 		);
 		}
 }
