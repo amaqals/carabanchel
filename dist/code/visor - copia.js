@@ -82,9 +82,9 @@ patrimonio.setStyle({
 
 /* points color according to category */
 function getcolor(c) {
-  if(c == "ORANGE ECONOMY") return '#FCAF00'; else
-  if (c == "TRADICIONAL") return '#3FDAD6';
-	if (c == "ALIADO") return '#FE52D4';
+  if(c == "naranja") return '#FCAF00'; else
+  if (c == "tradicional") return '#3FDAD6';
+	if (c == "aliado") return '#FE52D4';
   }
 
 /* points style */
@@ -92,7 +92,7 @@ function getcolor(c) {
 	  return{
 	    "stroke": false,
 	    "radius": 4,
-			"color": getcolor(feature.properties.CATEGORIA),
+			"color": getcolor(feature.properties.MAPEO_ESPE),
 	    "fillOpacity": 0.8
 	    }
 	}
@@ -102,7 +102,7 @@ function getcolor(c) {
 		  return{
 		    "stroke": false,
 		    "radius": 4,
-				"color": getcolor(feature.properties.CATEGORIA),
+				"color": getcolor(feature.properties.MAPEO_ESPE),
 		    "fillOpacity": 0.8
 		    }
 		}
@@ -112,7 +112,7 @@ function Popup(feature, layer) {
     if (feature.properties) {
         layer.bindPopup(
           '<div class="popup">'+
-		          '<p><b>categoría: </b><br>'+feature.properties.CATEGORIA+'<br><br><b>nombre: </b><br>'+feature.properties.NOMBRE+'<br><br><b>dirección:</b><br>'+feature.properties.DIRECCION+'<br><br><b>actividad:</b><br>'+feature.properties.ACTIVIDAD+'<br><br><b>descripción:</b><br>'+feature.properties.DESCRIPCION+'</p>'
+		          '<p><b>categoría: </b><br>'+feature.properties.MAPEO_ESPE+'<br><br><b>actividad:</b><br>'+feature.properties.SUBDIVISIO+'<br><br><b>nombre: </b><br>'+feature.properties.ROTULO+'</p>'
 		);
 		}
 }
@@ -122,7 +122,7 @@ function Popup_patrimonio(feature, layer) {
     if (feature.properties) {
         layer.bindPopup(
           '<div class="popup">'+
-		          '<p><b>categoría: </b><br>'+feature.properties.CATEGORIA+'<br><br><b>tipo: </b><br>'+feature.properties.TIPO+'<br><br> <b> dirección: </b><br>'+feature.properties.DIRECCIÓN+'<br><br> <b> año: </b><br>'+feature.properties.AÑO+'<br><br> <b> descripción: </b><br>'+feature.properties.DESCRIPCIÓ+'</p>'
+		          '<p><b>categoría: </b><br> geográfico <br><br><b>tipo: </b><br> patrimonio industrial <br><br> <b> dirección: </b><br>'+feature.properties.DIRECCIÓN+'<br><br> <b> año: </b><br>'+feature.properties.AÑO+'<br><br> <b> descripción: </b><br>'+feature.properties.DESCRIPCIÓ+'</p>'
 		);
 		}
 }
@@ -132,7 +132,7 @@ function Popup_oportunidad(feature, layer) {
     if (feature.properties) {
         layer.bindPopup(
           '<div class="popup">'+
-						'<p><b> categoría: </b><br>'+feature.properties.CATEGORIA+'<br><br><b>tipo: </b><br>'+feature.properties.TIPO+'</p>'
+						'<p><b> categoría: </b><br> geográfico <br><br><b>tipo: </b><br> lugar potencial</p>'
 		);
 		}
 }
@@ -164,4 +164,4 @@ legend.addTo(map);
 // 		initial: false,
 // 		// expanded: true,
 // 		hideMarkerOnCollapse: true,
-// 		propertyName: 'CATEGORIA'}));
+// 		propertyName: 'MAPEO_ESPE'}));
