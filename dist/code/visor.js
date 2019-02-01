@@ -82,9 +82,9 @@ patrimonio.setStyle({
 
 /* points color according to category */
 function getcolor(c) {
-  if(c == "ORANGE ECONOMY") return '#FCAF00'; else
-  if (c == "TRADICIONAL") return '#3FDAD6';
-	if (c == "ALIADO") return '#FE52D4';
+  if(c == "ORANGE ECONOMY") return '#ffb600'; else
+  if (c == "TRADICIONAL") return '#00CDEC';
+	if (c == "ALIADO") return '#f73600';
   }
 
 /* points style */
