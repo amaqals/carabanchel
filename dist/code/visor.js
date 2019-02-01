@@ -143,11 +143,11 @@ var legend = L.control({position: "topright"});
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML = '<b>categorías</b><br><br>' +
-        '<i style="background-color: #FCAF00">' +
+        '<i style="background-color: #ffb600">' +
         '</i>naranja<br>' +
-        '<i style="background-color: #3FDAD6">' +
+        '<i style="background-color: #00CDEC">' +
         '</i>tradicional <br>' +
-        '<i style="background-color: #FE52D4">' +
+        '<i style="background-color: #f73600">' +
         '</i>aliado<br><br>'+
         '<b>mapeo geográfico</b><br><br>'+
         '<i style="background-color: #19E301; width: 3px; height: 15px">' +
