@@ -142,18 +142,18 @@ var legend = L.control({position: "topright"});
 
 legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML = '<b>categorías</b><br><br>' +
+    div.innerHTML = '<b>CATEGORÍAS</b><br><br>' +
         '<i style="background-color: #ffb600">' +
-        '</i>naranja<br>' +
+        '</i>Orange Economy<br>' +
         '<i style="background-color: #00CDEC">' +
-        '</i>tradicional <br>' +
+        '</i>Tradicionales<br>' +
         '<i style="background-color: #f73600">' +
-        '</i>aliado<br><br>'+
-        '<b>mapeo geográfico</b><br><br>'+
+        '</i>Aliados<br><br>'+
+        '<b>MAPEO GEOGRÁFICO</b><br><br>'+
         '<i style="background-color: #19E301; width: 3px; height: 15px">' +
-        '</i>zonas potencial<br>'+
+        '</i>Zonas Potencial<br>'+
         '<i style="background-color: #070594; width: 3px; height: 15px">' +
-        '</i>patrimonio industrial<br>';
+        '</i>Patrimonio Industrial<br>';
     return div;
 };
 legend.addTo(map);
