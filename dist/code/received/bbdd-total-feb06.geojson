@@ -1,6 +1,6 @@
-var puntos = {
+{
 "type": "FeatureCollection",
-"name": "bbdd_nueva-4326-feb",
+"name": "bbdd-total-feb06",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "ID": 1, "XCOORD": 438678.59, "YCOORD": 4470877.53, "CATEGORIA": "TRADICIONAL", "POTENCIAL": "2", "DISTRITO": "Carabanchel", "BARRIO": "Opañel", "ID_PLANTA": "PB", "DIRECCION": "Calle Julio Domingo, 35", "NOMBRE": "ASCENSORES EXCELSIOR", "ACTIVIDAD": "Actividades De Construcción Especializada", "DESCRIPCION": "Instalaciones eléctricas, de fontanería y otras en obras de construcción", "CON_TELF": null, "CON_MAIL": null, "CON_WEB": null, "CON_FB": null, "CON_INSTA": null, "ALIMENTO": 0, "TEXTIL": 0, "METAL": 1, "INDUSTRIA": 0, "ELECTRONICA": 1, "MADERA": 0, "PAPEL": 0, "PINTURA": 0, "OTROS": 1, "RESIDUOS": 0, "ARTISTICO": 0, "TRADICIONAL": 1, "INNOVADOR": 0, "TECNICO": 1, "G FORMATO": 0, "PEQ FORMATO": 0, "MONTAJE": 2, "PRODUCTO": 0, "ESPACIO": 0 }, "geometry": { "type": "Point", "coordinates": [ -3.722472190337786, 40.386235538583556 ] } },
