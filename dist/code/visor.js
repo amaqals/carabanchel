@@ -34,7 +34,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png
 /* ied icon2 */
 var ied_icon = L.icon({
    iconUrl: 'dist/css/images/ied_icon_2.png',
-   iconSize: [38, 38] // size of the icon
+   iconSize: [35, 35] // size of the icon
 });
 L.marker([40.3905997, -3.7295064], {icon: ied_icon}).addTo(map);
 
@@ -64,11 +64,11 @@ var puntos = L.geoJSON(puntos, {
 
 /* polygons style (zonas potencial) */
 zonas.setStyle({
-    color: '#19E301',
+    color: '#070594',
 		stroke: 0.8,
 		filcolor:'#FFFFFF' ,
 		fillOpacity: 0.0,
-    weight: 1.5,
+    weight: 1.6,
     fill: true,
 });
 
@@ -76,6 +76,7 @@ zonas.setStyle({
 patrimonio.setStyle({
 		color: '#070594',
 		filcolor: '#070594',
+    fillOpacity: 1,
     weight: 0.5,
     fill: true,
 });
@@ -91,9 +92,9 @@ function getcolor(c) {
 	function categoria_style(feature) {
 	  return{
 	    "stroke": false,
-	    "radius": 4,
+	    "radius": 6,
 			"color": getcolor(feature.properties.CATEGORIA),
-	    "fillOpacity": 0.8
+	    "fillOpacity": 0.4
 	    }
 	}
 
@@ -101,9 +102,9 @@ function getcolor(c) {
 		function ied_style(feature) {
 		  return{
 		    "stroke": false,
-		    "radius": 4,
+		    "radius": 6,
 				"color": getcolor(feature.properties.CATEGORIA),
-		    "fillOpacity": 0.8
+		    "fillOpacity": 0.4
 		    }
 		}
 
@@ -150,9 +151,9 @@ legend.onAdd = function(map) {
         '<i style="background-color: #f73600">' +
         '</i>Aliados<br><br>'+
         '<b>MAPEO GEOGRÁFICO</b><br><br>'+
-        '<i style="background-color: #19E301; width: 3px; height: 15px">' +
+        '<i style="background-color: #070594; width: 5px">' +
         '</i>Zonas Potencial<br>'+
-        '<i style="background-color: #070594; width: 3px; height: 15px">' +
+        '<i style="background-color: #070594; width: 5px">' +
         '</i>Patrimonio Industrial<br>';
     return div;
 };
