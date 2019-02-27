@@ -62,13 +62,22 @@ var puntos = L.geoJSON(puntos, {
     }
 }).addTo(map);
 
+/* insert calles */
+var calles = L.geoJSON(calles, {
+	onEachFeature: Popup,
+	pointToLayer: function (feature, latlng) {
+        return L.path(calles_style(feature));
+    }
+}).addTo(map);
+
+
 /* polygons style (zonas potencial) */
 zonas.setStyle({
     color: '#070594',
 		stroke: 0.8,
 		filcolor:'#FFFFFF' ,
 		fillOpacity: 0.0,
-    weight: 1.6,
+    weight: 1.7,
     fill: true,
 });
 
@@ -80,6 +89,17 @@ patrimonio.setStyle({
     weight: 0.5,
     fill: true,
 });
+
+/* lines style (calles) */
+calles.setStyle({
+		color: '#070594',
+		// filcolor: '#070594',
+    // fillOpacity: 1,
+    weight: 0.25,
+    fill: true,
+});
+
+
 
 /* points color according to category */
 function getcolor(c) {
